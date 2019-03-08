@@ -1,7 +1,7 @@
 {
   "name": "get-focusables",
   "description": "Get focusable elements within a DOM node",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "author": "rasenplanscher",
   "contributors": [
     {
@@ -18,9 +18,11 @@
     "build": "run-s packCode updateReadme",
     "checkGit": "git diff --quiet",
     "commitReadme": "git add README.md",
+    "lint": "eslint .",
+    "lintFix": "eslint --fix .",
     "packCode": "browserize",
     "prepublishOnly": "run-s checkGit test build checkGit",
-    "test": "eslint .",
+    "test": "npm run lint",
     "updateReadme": "documentation readme --section API index.mjs"
   },
   "husky": {

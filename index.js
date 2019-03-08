@@ -14,7 +14,10 @@ const focusableElementsSelector = [
 	'embed',
 	'[contenteditable]',
 	'[tabindex]',
-].join(',')
+].map(
+	selector => `${selector}:not([tabindex^="-"])`
+).join(',')
+
 
 /** @private @type NodeListDummy */
 const nodeListDummy = Object.create(null)
