@@ -1,12 +1,12 @@
 {
   "name": "get-focusables",
   "description": "Get focusable elements within a DOM node",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "author": "rasenplanscher",
   "contributors": [
     {
       "name": "Alexander Hellmann",
-      "url": "https://github.com/alex-"
+      "url": "https://github.com/alexhellmann"
     }
   ],
   "license": "MIT",
@@ -19,7 +19,7 @@
     "checkGit": "git diff --quiet",
     "commitReadme": "git add README.md",
     "packCode": "browserize",
-    "prepublishOnly": "run-s checkGit test build",
+    "prepublishOnly": "run-s checkGit test build checkGit",
     "test": "eslint .",
     "updateReadme": "documentation readme --section API index.mjs"
   },
