@@ -1,0 +1,52 @@
+{
+  "name": "get-focusables",
+  "description": "Get focusable elements within a DOM node",
+  "version": "1.0.0",
+  "author": "rasenplanscher",
+  "contributors": [
+    {
+      "name": "Alexander Hellmann",
+      "url": "https://github.com/alex-"
+    }
+  ],
+  "license": "MIT",
+  "main": "index.js",
+  "files": [
+    "index.mjs"
+  ],
+  "scripts": {
+    "build": "run-s packCode updateReadme",
+    "checkGit": "git diff --quiet",
+    "commitReadme": "git add README.md",
+    "packCode": "browserize",
+    "prepublishOnly": "run-s checkGit test build",
+    "test": "eslint .",
+    "updateReadme": "documentation readme --section API index.mjs"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npx run-s test build commitReadme"
+    }
+  },
+  "devDependencies": {
+    "browserize": "^1.0.2",
+    "documentation": "^9.3.0",
+    "eslint": "^5.15.1",
+    "eslint-plugin-jsdoc": "^4.1.1",
+    "eslint-plugin-unicorn": "^7.1.0",
+    "husky": "^1.3.1",
+    "npm-run-all": "^4.1.5"
+  },
+  "homepage": "https://github.com/rasenplanscher/get-focusables#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rasenplanscher/get-focusables.git"
+  },
+  "bugs": {
+    "url": "https://github.com/rasenplanscher/get-focusables/issues"
+  },
+  "keywords": [
+    "DOM",
+    "browser"
+  ]
+}
