@@ -2,21 +2,8 @@ module.exports = getFocusableElements
 getFocusableElements.asArray = getArrayOfFocusableElements
 
 
-const focusableElementsSelector = [
-	'a[href]',
-	'area[href]',
-	'input:not([disabled]):not([type="hidden"])',
-	'select:not([disabled])',
-	'textarea:not([disabled])',
-	'button:not([disabled])',
-	'iframe',
-	'object',
-	'embed',
-	'[contenteditable]',
-	'[tabindex]',
-].map(
-	selector => `${selector}:not([tabindex^="-"])`
-).join(',')
+const focusableElementsSelector = require('./focusable-selectors')
+const tabbableElementsSelector = require('./tabbable-selectors')
 
 
 /** @private @type NodeListDummy */
@@ -28,11 +15,12 @@ Object.freeze(nodeListDummy)
 /**
  * Retrieves all focusable descendents of the given DOM element.
  *
- * @param {Element} [context=document] - The DOM Element in which to look for focusable elements.
+ * @param {Element} [context=document] - The DOM Element in which to look for focusable elements
+ * @param {boolean} [tabbable=true] - Restrict to tabbable elements
  *
  * @returns {NodeList|NodeListDummy}
  */
-function getFocusableElements (context = document) {
+function getFocusableElements (context = document, tabbable = true) {
 	if (
 		context === null ||
 		typeof context !== 'object' ||
@@ -41,7 +29,7 @@ function getFocusableElements (context = document) {
 		return nodeListDummy
 	}
 
-	return context.querySelectorAll(focusableElementsSelector)
+	return context.querySelectorAll(tabbable ? tabbableElementsSelector : focusableElementsSelector)
 }
 
 /**
@@ -50,12 +38,13 @@ function getFocusableElements (context = document) {
  * @description
  * Same as `getFocusableElements` but returns an Array
  *
- * @param {Element} [context=document] - The DOM Element in which to look for focusable elements.
+ * @param {Element} [context=document] - The DOM Element in which to look for focusable elements
+ * @param {boolean} [tabbable=true] - Restrict to tabbable elements
  *
  * @returns {Array}
  */
-function getArrayOfFocusableElements (context) {
-	const nodes = getFocusableElements(context)
+function getArrayOfFocusableElements (context, tabbable) {
+	const nodes = getFocusableElements(context, tabbable)
 
 	return Array.from(nodes)
 }

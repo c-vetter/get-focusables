@@ -281,7 +281,6 @@ module.exports = {
 		'jsdoc/check-types': ACTIVATE,
 		'jsdoc/newline-after-description': ACTIVATE,
 		'jsdoc/no-undefined-types': ACTIVATE,
-		'jsdoc/require-description-complete-sentence': ACTIVATE,
 		'jsdoc/require-hyphen-before-param-description': ACTIVATE,
 		'jsdoc/require-param': ACTIVATE,
 		'jsdoc/require-param-name': ACTIVATE,

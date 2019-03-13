@@ -1,6 +1,6 @@
 # get-focusables
 
-Get focusable elements within a DOM node
+Get focusable or tabbable elements within a DOM node
 
 ## Versions
 
@@ -42,7 +42,8 @@ Retrieves all focusable descendents of the given DOM element.
 
 #### Parameters
 
--   `context` **[Element](https://developer.mozilla.org/docs/Web/API/Element)** The DOM Element in which to look for focusable elements. (optional, default `document`)
+-   `context` **[Element](https://developer.mozilla.org/docs/Web/API/Element)** The DOM Element in which to look for focusable elements (optional, default `document`)
+-   `tabbable` **[boolean](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean)** Restrict to tabbable elements (optional, default `true`)
 
 Returns **([NodeList](https://developer.mozilla.org/docs/Web/API/NodeList) \| [NodeListDummy](#nodelistdummy))** 
 
@@ -52,7 +53,8 @@ Same as `getFocusableElements` but returns an Array
 
 #### Parameters
 
--   `context` **[Element](https://developer.mozilla.org/docs/Web/API/Element)** The DOM Element in which to look for focusable elements. (optional, default `document`)
+-   `context` **[Element](https://developer.mozilla.org/docs/Web/API/Element)** The DOM Element in which to look for focusable elements (optional, default `document`)
+-   `tabbable` **[boolean](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean)** Restrict to tabbable elements (optional, default `true`)
 
 Returns **[Array](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array)** 
 

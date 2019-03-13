@@ -1,7 +1,7 @@
 {
   "name": "get-focusables",
-  "description": "Get focusable elements within a DOM node",
-  "version": "1.1.1",
+  "description": "Get focusable or tabbable elements within a DOM node",
+  "version": "1.2.0",
   "author": "rasenplanscher",
   "contributors": [
     {
@@ -17,17 +17,18 @@
     "es5.mjs"
   ],
   "scripts": {
-    "build": "run-s transpile packES5 packES6 updateReadme",
+    "build": "run-s packSrc transpile packES5 packES6 updateReadme",
     "checkGit": "git diff --quiet",
     "commitReadme": "git add README.md",
-    "lint": "eslint index.js",
-    "lintFix": "eslint --fix index.js",
+    "lint": "eslint src/*",
+    "lintFix": "eslint --fix src/*",
     "packES5": "browserize es5.js",
     "packES6": "browserize",
+    "packSrc": "npx bake-dependencies src/index.js index.js",
     "prepublishOnly": "run-s checkGit test build checkGit",
     "test": "npm run lint",
     "transpile": "babel index.js -o es5.js --presets=@babel/preset-env",
-    "updateReadme": "documentation readme --section API index.js"
+    "updateReadme": "documentation readme --section API src/index.js"
   },
   "husky": {
     "hooks": {
@@ -37,6 +38,7 @@
   "devDependencies": {
     "@babel/cli": "^7.2.3",
     "@babel/core": "^7.3.4",
+    "bake-dependencies": "^1.0.0",
     "browserize": "^1.0.2",
     "documentation": "^9.3.1",
     "eslint": "^5.15.1",
