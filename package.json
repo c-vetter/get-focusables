@@ -1,7 +1,7 @@
 {
   "name": "get-focusables",
   "description": "Get focusable elements within a DOM node",
-  "version": "1.0.2",
+  "version": "1.1.0",
   "author": "rasenplanscher",
   "contributors": [
     {
@@ -12,17 +12,21 @@
   "license": "MIT",
   "main": "index.js",
   "files": [
-    "index.mjs"
+    "index.mjs",
+    "es5.js",
+    "es5.mjs"
   ],
   "scripts": {
-    "build": "run-s packCode updateReadme",
+    "build": "run-s transpile packES5 packES6 updateReadme",
     "checkGit": "git diff --quiet",
     "commitReadme": "git add README.md",
-    "lint": "eslint .",
-    "lintFix": "eslint --fix .",
-    "packCode": "browserize",
+    "lint": "eslint index.js",
+    "lintFix": "eslint --fix index.js",
+    "packES5": "browserize es5.js",
+    "packES6": "browserize",
     "prepublishOnly": "run-s checkGit test build checkGit",
     "test": "npm run lint",
+    "transpile": "babel index.js -o es5.js --presets=@babel/preset-env",
     "updateReadme": "documentation readme --section API index.mjs"
   },
   "husky": {
@@ -31,6 +35,8 @@
     }
   },
   "devDependencies": {
+    "@babel/cli": "^7.2.3",
+    "@babel/core": "^7.3.4",
     "browserize": "^1.0.2",
     "documentation": "^9.3.0",
     "eslint": "^5.15.1",

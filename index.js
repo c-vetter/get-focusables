@@ -57,7 +57,7 @@ function getFocusableElements (context = document) {
 function getArrayOfFocusableElements (context) {
 	const nodes = getFocusableElements(context)
 
-	return [...nodes]
+	return Array.from(nodes)
 }
 
 /**

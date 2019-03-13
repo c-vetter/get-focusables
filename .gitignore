@@ -1,2 +1,4 @@
 node_modules/
 index.mjs
+es5.js
+es5.mjs

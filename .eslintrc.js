@@ -260,7 +260,6 @@ module.exports = {
 		],
 		'prefer-const': ACTIVATE,
 		'prefer-rest-params': ACTIVATE,
-		'prefer-spread': ACTIVATE,
 		'prefer-template': ACTIVATE,
 		'rest-spread-spacing': ACTIVATE,
 		'template-curly-spacing': ACTIVATE,
@@ -298,9 +297,10 @@ module.exports = {
 				'non-zero': 'greater-than',
 			},
 		],
-		'unicorn/custom-error-definition': ACTIVATE,
-		'unicorn/no-unsafe-regex': ACTIVATE,
 		'unicorn/filename-case': DEACTIVATE,
+		'unicorn/custom-error-definition': ACTIVATE,
+		'unicorn/prefer-spread': DEACTIVATE,
+		'unicorn/no-unsafe-regex': ACTIVATE,
 	},
 
 	settings: {
