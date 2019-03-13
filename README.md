@@ -7,19 +7,20 @@ Get focusable elements within a DOM node
 The package includes versions for ES6+ and ES5, both as an ESM module (browser-compatible) and a CJS module (npm-compatible).
 
 Here's the included file variants:
-|     | CJS      | ESM       | importing                                              |
-\|-----\|----------\|-----------\|--------------------------------------------------------\|
-| ES6 | index.js | index.mjs | `const getFocusableElements = require('get-focusables')` \|
-| ES5 | es5.js   | es5.mjs   | `import getFocusableElements from 'get-focusables'` \|
+
+|     | CJS      | ESM       | importing                                                |
+| --- | -------- | --------- | -------------------------------------------------------- |
+| ES6 | index.js | index.mjs | `const getFocusableElements = require('get-focusables')` |
+| ES5 | es5.js   | es5.mjs   | `import getFocusableElements from 'get-focusables'`      |
 
 Each version gives you the [getFocusableElements](#getfocusableelements) function.
 
-`get-focusables` is written in ES6 syntax and packaged node-style.\\
-It is converted to ES5/ESM for wider distribution.\\
+`get-focusables` is written in ES6 syntax and packaged node-style.<br>
+It is converted to ES5/ESM for wider distribution.<br>
 The default is therefore the ES6 CJS variant `index.js`.
 
-> **NOTE**\\
-> In order to get a non-default version, you will need to tell your bundler to use `index.mjs`/`es5.js`/`es5.mjs` instead of `index.js`. \\
+> **NOTE**<br>
+> In order to get a non-default version, you will need to tell your bundler to use `index.mjs`/`es5.js`/`es5.mjs` instead of `index.js`. <br>
 > For `webpack`, that's `{ resolve: { alias: { 'get-focusables': 'get-focusables/es5.mjs } } }'`
 
 ## API
